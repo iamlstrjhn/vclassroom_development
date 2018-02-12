@@ -13,7 +13,7 @@ class Videochat_model extends CI_Model
 		return $this->db
 		->where('VideochatUploader', $id)
 		->join('table_faculty','table_videochat.VideochatUploader=table_faculty.FacultyID','left')
-		->order_by('VideochatDate','asc')	
+		->order_by('VideochatDate','DESC')	
 		->get('table_videochat')->result_array();
 	}
 
@@ -32,6 +32,12 @@ class Videochat_model extends CI_Model
 
 	public function insert_video($data){
 		return $this->db->insert('table_videochat', $data);
+	}
+
+	public function edit_video($id,$data){
+		$id = array('VideochatID'=> $this->input->post('id'));
+		$this->db->where($id)->update('table_videochat',$data);
+    	return true;
 	}
 
 }

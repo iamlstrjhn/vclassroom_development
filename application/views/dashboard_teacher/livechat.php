@@ -55,7 +55,56 @@
                           <?php foreach ($videochat as $livechat){ ?>
                               <div class="col s12 m7 l7">
                                 <div class="card-live-chat">
-                                  <h6 class="h6-schedule"><?php echo $livechat['VideochatTopic'] ?></h6>
+                                  <h6 class="h6-schedule"><?php echo $livechat['VideochatTopic'] ?> 
+                                        <a class="right dropdown-button" href="#" data-beloworigin="true" data-activates="dropdownlivechat<?php echo $livechat['VideochatID'] ?>"><i class="material-icons material-details">more_horiz</i></a>
+                                  </h6>
+
+                                    <!-- content of dropdown -->
+                                      <ul id='dropdownlivechat<?php echo $livechat['VideochatID'] ?>' class='dropdown-content' style="font-weight: 400!important;">
+                                        <li><a href="#modaledit<?php echo $livechat['VideochatID'] ?>" class="modal-trigger"><i class="material-icons">edit</i>EDIT</a></li>
+                                        <li><a href="#!" class="remove"><i class="material-icons">delete</i>REMOVE</a></li>
+                                      </ul>
+                                    <!-- end of content of dropdown -->
+
+                                    <!-- this is the modal part for edit -->
+                                    <!-- modal part -->
+                                      <div id="modaledit<?php echo $livechat['VideochatID'] ?>" class="modal">
+                                          <div class="modal-content modal-add-schedules">
+                                                <h5>Edit Livechat content</h5>
+                                                <div class="line" style="border:2px solid #00bcd4!important; margin:30px 0 10px 0;"></div>
+
+                                                <form action="Teacherlivechat/updatelivechat" method=POST>
+                                                <input type="hidden" name='id' value="<?php echo $livechat['VideochatID'] ?>">
+                                                  <div class="row">
+                                                      <div class="col s12">
+                                                          <div class="input-field">
+                                                            <input type="text" class="validate" name="topic" value="<?php echo $livechat['VideochatTopic'] ?>">
+                                                            <label>Title</label>
+                                                          </div>
+                                                      </div>
+
+                                                      <div class="col s12">
+                                                          <div class="input-field">
+                                                            <input type="text" class="validate" name="overview" value="<?php echo $livechat['VideochatOverview'] ?>">
+                                                            <label>Content</label>
+                                                          </div>
+                                                      </div>
+
+                                                     <div class="col s12">
+                                                          <div class="input-field">
+                                                            <input type="text" class="datepicker" name="sched" value="<?php echo $livechat['VideochatSched'] ?>">
+                                                            <label>Date</label>
+                                                          </div>
+                                                      </div>
+                                                    </div>
+
+                                                    <button class="waves-effect btn cyan btn-username right" type="submit" value="submit" style="margin-top: 78px;">SUBMIT </button>
+                                                    </form>
+                                                
+                                            </div>
+                                      </div>
+
+
                                   <p><b class="sched-bold-text"><?php echo $livechat['Firstname'].' '.$livechat['Lastname']?></b>&ensp;<i><?php echo $livechat['VideochatSched'] ?></i></p>
                                   <p><?php echo $livechat['VideochatOverview'] ?></p>
                                   <button class="btn btn-username cyan">Start</button>
