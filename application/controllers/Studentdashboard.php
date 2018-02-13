@@ -34,7 +34,9 @@ class Studentdashboard extends CI_Controller
 
 	public function upload_requirements(){
 
-			if ($this->session->userdata('flag')) {
+			if ($this->session->userdata('flag')) 
+			{
+
 				$this->form_validation->set_rules('content', 'SchoolWorksContent', 'required');
 
 				if($this->form_validation->run() === FALSE)
@@ -44,29 +46,30 @@ class Studentdashboard extends CI_Controller
 
 				else
 	            {
-								$config['upload_path']          = './uploads/';
-		                        $config['allowed_types']        = 'docx|xlsx|pdf|jpg|png|rar|pptx';
-		                        $config['max_size']             = 0;
-		                        $config['max_filename']         = 0;
-		                        $config['max_filename_increment'] = FALSE;
-		                        $config['remove_spaces'] 	    = TRUE;
+						$config['upload_path']          = './uploads/';
+		                $config['allowed_types']        = 'docx|xlsx|pdf|jpg|png|rar|pptx';
+		                $config['max_size']             = 0;
+		                $config['max_filename']         = 0;
+		                $config['max_filename_increment'] = FALSE;
+		                $config['remove_spaces'] 	    = TRUE;
 		                
-				                $this->load->library('upload',$config);
-				                $this->upload->initialize($config);
+				        $this->load->library('upload',$config);
+				        $this->upload->initialize($config);
 
-				                if ( !$this->upload->do_upload())
+				              	if ( !$this->upload->do_upload())
 				                {
-				                        $error = array('error' => $this->upload->display_errors());
+				                  $error = array('error' => $this->upload->display_errors());
+				                  var_dump($error);
 				                }
 
 
 				                else
 				                {
-				                        $data = array(
-				                        	'SchoolWorksLoad'=>$this->input->post('load'),
-				                        	'SchoolWorksContent'=>$this->input->post('content'),
-				                        	'SchoolWorksFile'=>$_FILES['userfile']['name'],
-				                        	'SchoolWorksUploader'=>$this->session->userdata['flag']['UserID']
+				                    $data = array(
+				                      	'SchoolWorksLoad'=>$this->input->post('load'),
+				                       	'SchoolWorksContent'=>$this->input->post('content'),
+				                        'SchoolWorksFile'=>$_FILES['userfile']['name'],
+				                        'SchoolWorksUploader'=>$this->session->userdata['flag']['UserID']
 				                        );
 
 				                        $this->Schoolworks_model->create_content($data);
@@ -82,8 +85,52 @@ class Studentdashboard extends CI_Controller
 				redirect('Studentlogin');
 			}
 
-
 		
 	}
+
+
+
+			public function edit_content(){
+
+				$this->form_validation->set_rules('content', 'SchoolWorksContent', 'required');
+				if($this->form_validation->run() === FALSE)
+				{
+					redirect('Studentdashboard');
+				} 
+				else
+	                {
+
+	        				$config['upload_path']              = './uploads/';
+	                        $config['allowed_types']            = 'docx|xlsx|pdf|jpg|png|rar|pptx';
+	                        $config['max_size']                 = 0;
+	                        $config['max_filename']             = 0;
+	                        $config['max_filename_increment']   = FALSE;
+	                        $config['remove_spaces'] 	   		=  TRUE;
+	                                        
+	                        $this->load->library('upload',$config);
+	                        $this->upload->initialize($config);
+
+	                        	if ( !$this->upload->do_upload())
+	                               {
+	                                  	$error = array('error' => $this->upload->display_errors());
+	                                    redirect('Studentdashboard');
+	                                }
+	                                        
+	                             else
+	                                 {
+	                                     $data = array(
+	                                          	'SchoolWorksLoad'=>$this->input->post('load'),
+	                                             'SchoolWorksContent'=>$this->input->post('content'),
+	                                             'SchoolWorksFile'=>$_FILES['userfile']['name'],
+	                                             'SchoolWorksUploader'=>$this->session->userdata['flag']['UserID']
+	                                                );
+	                                    $this->Schoolworks_model->edit_student_content($id,$data);
+	                        			redirect('Studentdashboard');
+	                                  }
+
+	                }
+
+	       }
+
 
 }

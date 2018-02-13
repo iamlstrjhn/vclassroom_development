@@ -52,6 +52,12 @@ class Schoolworks_model extends CI_Model {
     	return true;
 	}
 
+	public function edit_student_content($id,$data){
+		$id = array('SchoolworksID'=> $this->input->post('id'));
+		$this->db->where($id)->update('table_post_schoolworks',$data);
+    	return true;
+	}
+
 
 	/*this portion is for the student part*/
 

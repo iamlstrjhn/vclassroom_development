@@ -58,7 +58,63 @@
                               <?php foreach ($insert_data as $data_insert) { ?>
                                   <div class="col s12 l6">
                                     <div class="card-works">
-                                      <a class="black-text h6-for-schoolworks" href="#" target="_blank"><?= $data_insert['SchoolWorksFile']; ?></a><br>
+                                      <a class="black-text h6-for-schoolworks" href="<?php echo site_url('/uploads/') .$data_insert['SchoolWorksFile']?>" target="_blank"><?= $data_insert['SchoolWorksFile']; ?></a>
+                                      <!-- dropdown icon -->
+                                      <a class="right dropdown-button" href="#" data-beloworigin="true" data-activates="dropdown7<?php echo $data_insert['SchoolworksID'] ?>"><i class="material-icons material-details">more_horiz</i></a>
+                                      <!-- end of dropdown icon -->
+                                      <!-- dropdown content part -->
+                                      <ul id='dropdown7<?php echo $data_insert['SchoolworksID'] ?>' class='dropdown-content'>
+                                        <li><a href="#modaledit<?php echo $data_insert['SchoolworksID'] ?>" class="modal-trigger"><i class="material-icons">edit</i>EDIT</a></li>
+                                        <li><a href="#!" class="remove"><i class="material-icons">delete</i>REMOVE</a></li>
+                                      </ul>
+                                      <!-- end of dropdown content -->
+
+                                       <!-- Modal part of edit  -->
+                                        <div id="modaledit<?php echo $data_insert['SchoolworksID'] ?>" class="modal">
+                                            <div class="modal-content modal-add-works">
+                                              <h5>Edit the information given</h5>
+                                                <?php echo form_open_multipart('Studentdashboard/edit_content'); ?>
+                                                    <input type="hidden" name='id' value="<?php echo $data_insert['SchoolworksID'];?>">
+                                                    <div class="row">
+                                                        <div class="col s12">
+                                                            <div class="input-field">
+                                                              <input name="content" type="text" class="validate" value="<?php echo $data_insert['SchoolWorksContent'] ?>">
+                                                              <label>Input message</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                      <div class="col s12">
+                                                        <div class="input-field">
+                                                          <select name="load" <?php echo $data_insert['SubjectDescription'] ?>>
+                                                            <?php foreach ($loads as $load) { ?>
+                                                            <option value="<?php echo $load['FacultyLoadID'] ?>"><?php echo $load['SubjectDescription'] ?></option>
+                                                            <?php }?>
+                                                          </select>
+                                                          <label>Choose your subject</label>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+
+                                                    <div class="file-field input-field">
+                                                        <div class="btn btn-username cyan ">
+                                                            <span>File</span>
+                                                            <input type="file" name="userfile" size="20" value="<?php echo site_url('/uploads/') .$data_insert['SchoolWorksFile']?>">
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text" size="20" name="userfile" value="<?php echo site_url('/uploads/') .$data_insert['SchoolWorksFile']?>">
+                                                        </div>
+                                                    </div>
+                                                   <button class="waves-effect btn cyan btn-username right" type="submit" value="upload" style="margin-top: 60px;">SUBMIT </button>
+                                              </form>
+
+                                            </div>
+                                        </div>
+                                        <!-- End of modal for edit -->
+
+
+                                      <br>
                                       <small><?= $data_insert['SchoolWorksDate'] ?></small>
                                       <p><?= $data_insert['SchoolWorksContent']; ?></p>
                                       <div class="divider"></div>
