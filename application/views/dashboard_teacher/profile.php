@@ -16,16 +16,51 @@
                     <div class="row">
                       <div class="col s12">
                         <div class="card-for-profile">
+
                             <div class="row row-for-card-profile">
                               <form>
                                 <div class="col l1">
-                                  <img id="blah" class="responsive-img" src="images/2x2.png" alt="...">
+                                  <img class="responsive-img" src="<?php echo site_url('/uploads/') .$profiles['Photo']?>">
                                 </div>
+
                               </form>
-                                <div class="col l11 name-user">
-                                  <h5><b><?php echo $profiles['Firstname'].' '.$profiles['Middlename'].' '.$profiles['Lastname'] ?></b></h5>
+
+                                <div class="col l10 name-user">
+                                  <h5><b><?php echo $profiles['Firstname'].' '.$profiles['Middlename'].' '.$profiles['Lastname'] ?></b>
+                                   
+                                  </h5>
                                   <p>PROFESSOR</p>
                                 </div>
+
+                                <div class="col l1">
+                                   <!-- dropdown button -->
+                                      <a class="right dropdown-button" href="#" data-beloworigin="true" data-activates="dropdown1<?php echo $profiles['FacultyID'];?>"><i class="material-icons material-detail-profile">more_horiz</i></a>
+                                    <!-- end of dropdown button -->
+                                    <!-- dropdown content for this part -->
+                                     <ul id='dropdown1<?php echo $profiles['FacultyID'];?>' class='dropdown-content dropdown-content-photo'>
+                                        <li><a href="#modaledit<?php echo $profiles['FacultyID'];?>" class="modal-trigger"><i class="material-icons">edit</i>EDIT</a></li>
+                                    </ul>
+                                      <!-- this is for the modal part of view files -->
+                                       <div id="modaledit<?php echo $profiles['FacultyID'];?>" class="modal modal-iframe-content">
+                                          <div class="modal-content">
+                                            <?php echo form_open_multipart('Teacherprofile/update_photo'); ?>
+                                            <input type="hidden" name='id' value="<?php echo $profiles['FacultyID'];?>">
+                                                  <div class="file-field input-field">
+                                                        <div class="btn btn-username cyan ">
+                                                            <span>PHOTO</span>
+                                                              <input type="file"  name="userfile" size="20" value="<?php echo site_url('/uploads/') .$profiles['Photo']?>">
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                              <input class="file-path validate" type="text" placeholder="Add your photo here.." value="<?php echo site_url('/uploads/') .$profiles['Photo']?>">
+                                                        </div>
+                                                  </div>
+                                                  <button class="waves-effect btn cyan btn-username right" type="submit" value="submit" style="margin: 20px 0;">SUBMIT </button>
+                                            </form>
+                                          </div>
+                                      </div>
+                                      <!-- end of modal part -->
+                                </div>
+
                             </div>
                                 <center>
                                 <div class="border-top"></div>

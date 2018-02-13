@@ -72,8 +72,17 @@
 
                                           <div id="modalviewstudents<?php echo $load_student['StudentID'] ?>" class="modal">
                                             <div class="modal-content">
-                                              <h5><?php echo $load_student['Firstname'] ?> <?php echo $load_student['Lastname'] ?></h5>
+                                              <div class="row">
+                                                <div class="col l2 s2">
+                                                   <img class="responsive-img" src="<?php echo site_url('/uploads/') .$load_student['Photo']?>">
+                                                </div>
+                                                <div class="col l10 s10">
+                                                  <h5><?php echo $load_student['Firstname'] ?> <?php echo $load_student['Lastname'] ?></h5>
                                               <h6>STUDENT</h6>
+                                                </div>
+                                              </div>
+                                             
+                                              
                                               <div class="line" style="border:3px solid #00bcd4!important;margin: 25px 0;"></div>
                                               <p><b>EMAIL:</b>&ensp;<?php echo $load_student['Email'] ?></p>
                                               <p><b>ADDRESS:</b>&ensp;<?php echo $load_student['Address'] ?></p>

@@ -84,36 +84,37 @@ class Teacherschoolworks extends CI_Controller
 				redirect('Teacherschoolworks');
 			} 
 			else
-                        {
+                                {
 
-				$config['upload_path']              = './uploads/';
-                                $config['allowed_types']            = 'docx|xlsx|pdf|jpg|png|rar|pptx';
-                                $config['max_size']                 = 0;
-                                $config['max_filename']             = 0;
-                                $config['max_filename_increment']   = FALSE;
-                                $config['remove_spaces'] 	    =  TRUE;
-                                
-                                $this->load->library('upload',$config);
-                                $this->upload->initialize($config);
+        				$config['upload_path']              = './uploads/';
+                                        $config['allowed_types']            = 'docx|xlsx|pdf|jpg|png|rar|pptx';
+                                        $config['max_size']                 = 0;
+                                        $config['max_filename']             = 0;
+                                        $config['max_filename_increment']   = FALSE;
+                                        $config['remove_spaces'] 	    =  TRUE;
+                                        
+                                        $this->load->library('upload',$config);
+                                        $this->upload->initialize($config);
 
-                        if ( !$this->upload->do_upload())
-                        {
-                                $error = array('error' => $this->upload->display_errors());
-                                redirect('Teacherschoolworks');
-                        }
-                        else
-                        {
-                                $data = array(
-                                	'SchoolWorksLoad'=>$this->input->post('load'),
-                                	'SchoolWorksContent'=>$this->input->post('content'),
-                                	'SchoolWorksFile'=>$_FILES['userfile']['name'],
-                                        'SchoolWorksUploader'=>$this->session->userdata['session']['UserID']
-                                );
-                                $this->Schoolworks_model->editcontent($id,$data);
-        			redirect('Teacherschoolworks');
-                        }
+                                        if ( !$this->upload->do_upload())
+                                        {
+                                                $error = array('error' => $this->upload->display_errors());
+                                                redirect('Teacherschoolworks');
+                                        }
+                                        
+                                        else
+                                        {
+                                                $data = array(
+                                                	'SchoolWorksLoad'=>$this->input->post('load'),
+                                                	'SchoolWorksContent'=>$this->input->post('content'),
+                                                	'SchoolWorksFile'=>$_FILES['userfile']['name'],
+                                                        'SchoolWorksUploader'=>$this->session->userdata['session']['UserID']
+                                                );
+                                                $this->Schoolworks_model->editcontent($id,$data);
+                        			redirect('Teacherschoolworks');
+                                        }
 
-        		}
+                		}
 
 	       }
 

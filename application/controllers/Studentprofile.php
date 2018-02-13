@@ -71,4 +71,32 @@ class Studentprofile extends CI_Controller
 	}
 
 
+	public function update_photo(){
+				$config['upload_path']              = './uploads/';
+				$config['allowed_types']            = 'docx|xlsx|pdf|jpg|png|rar|pptx';
+				$config['max_size']                 = 0;
+				$config['max_filename']             = 0;
+				$config['max_filename_increment']   = FALSE;
+				$config['remove_spaces'] 	   		= TRUE;
+                                        
+                $this->load->library('upload',$config);
+                $this->upload->initialize($config);
+
+					if ( !$this->upload->do_upload())
+                     {
+						$error = array('error' => $this->upload->display_errors());
+                        redirect('Studentprofile');
+                     }
+
+                     else
+                     {
+                     	$data = array('upload_data' => $this->upload->data());
+						$Photo = $_FILES['userfile']['name'];
+                     }
+
+                     $this->Profile_model->edit_student_photo($id,$data,$Photo);
+                     redirect('Studentprofile');
+	}
+
+
 }

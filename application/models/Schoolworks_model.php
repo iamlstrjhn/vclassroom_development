@@ -7,9 +7,9 @@ class Schoolworks_model extends CI_Model {
 	}
 
 
-	public function getcontent ($filter=NULL, $id) {
+	public function getcontent ($filter="", $id) {
 		
-		if ($filter!=NULL) {
+		if ($filter!="") {
 			return $this->db
 			->where('SubjectDescription', $filter)
 			->where('SchoolWorksUploader', $id)

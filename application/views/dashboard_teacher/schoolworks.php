@@ -140,7 +140,7 @@
                                                       <input type="file" name="userfile" size="20" value="<?php echo site_url('/uploads/') .$item['SchoolWorksFile']?>">
                                                   </div>
                                                   <div class="file-path-wrapper">
-                                                      <input class="file-path validate" type="text" size"20" name="userfile" value="<?php echo site_url('/uploads/') .$item['SchoolWorksFile']?>">
+                                                      <input class="file-path validate" type="text" size="20" name="userfile" value="<?php echo site_url('/uploads/') .$item['SchoolWorksFile']?>">
                                                   </div>
                                               </div>
                                              <button class="waves-effect btn cyan btn-username right" type="submit" value="upload" style="margin-top: 60px;">SUBMIT </button>
