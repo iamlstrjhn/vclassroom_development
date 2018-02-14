@@ -84,6 +84,7 @@
                                              
                                               
                                               <div class="line" style="border:3px solid #00bcd4!important;margin: 25px 0;"></div>
+                                              <p><b>ID NUMBER :</b>&ensp;<?php echo $load_student['Studentnumber'] ?></p>
                                               <p><b>EMAIL:</b>&ensp;<?php echo $load_student['Email'] ?></p>
                                               <p><b>ADDRESS:</b>&ensp;<?php echo $load_student['Address'] ?></p>
                                               <p><b>CONTACT:</b>&ensp;<?php echo $load_student['Contact'] ?></p>
