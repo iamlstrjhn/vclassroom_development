@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700,900" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/materialize/css/animate.css">
-    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
-    <link rel="stylesheet" type="text/css" href="assets/materialize/css/custom.css" media="screen,projection">
-    <link rel="stylesheet" type="text/css" href="assets/materialize/css/particles.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/materialize/css/animate.css') ?>">
+    <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/materialize/css/materialize.min.css') ?>"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/materialize/css/custom.css') ?>" media="screen,projection">
 
 </head>
 <body>
@@ -17,7 +16,7 @@
 			<center>
 				<section class="cover-register">
 					<div class="logo-login animated fadeInUp">
-						<img class="responsive-img logo-login-img" src="/images/logocc.png">
+						<img class="responsive-img logo-login-img" src="<?php echo base_url('images/logocc.png') ?>">
 					</div>
 
 					<div class="container">
@@ -40,15 +39,7 @@
 			</center>
 	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="assets/materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="assets/materialize/js/particles.js"></script>
-    <script type="text/javascript" src="assets/materialize/js/app.js"></script>
-    <script type="text/javascript">
-    	particlesJS.load('particles-js', 'assets/materialize/js/particles.json', function() {
-
-		console.log('callback - particles.js config loaded');
-		});
-    </script>
+    <script type="text/javascript" src="<?php echo base_url('assets/materialize/js/materialize.min.js') ?>"></script>
 
 </body>
 </html>

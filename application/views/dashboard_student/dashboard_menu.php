@@ -73,7 +73,7 @@
                                         <div id="modaledit<?php echo $data_insert['SchoolworksID'] ?>" class="modal">
                                             <div class="modal-content modal-add-works">
                                               <h5>Edit the information given</h5>
-                                                <?php echo form_open_multipart('Studentdashboard/edit_content'); ?>
+                                              <form enctype="multipart/form-data" action="<?php echo base_url('Studentdashboard/edit_content') ?> " method="POST">
                                                     <input type="hidden" name='id' value="<?php echo $data_insert['SchoolworksID'];?>">
                                                     <div class="row">
                                                         <div class="col s12">
@@ -128,7 +128,7 @@
                                  <div id="modalforupload" class="modal">
                                     <div class="modal-content modal-add-works">
                                       <h5>Upload your requirements</h5>
-                                         <?php echo form_open_multipart('Studentdashboard/upload_requirements'); ?>
+                                        <form enctype="multipart/form-data" action="<?php echo base_url('Studentdashboard/upload_requirements') ?>" method="POST">
                                             <div class="row">
                                                 <div class="col s12">
                                                     <div class="input-field">

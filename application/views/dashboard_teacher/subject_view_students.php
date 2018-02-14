@@ -18,7 +18,7 @@
                         <div class="modal-content modal-add-student">
                          <h5>Add a student</h5> 
                          <!-- form start -->
-                            <?php echo form_open('Teachersubjects/save'); ?>
+                          <form action="<?php echo base_url('Teachersubjects/save') ?>" method="POST">
                             <input type="hidden" name="faculty_load" value="<?php echo  $load_details['FacultyLoadID'] ?>">
                                       <div>
                                         <select data-placeholder="Select a student" multiple class="chosen-select" name="student[]">
@@ -134,7 +134,7 @@
 
           <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-          <script type="text/javascript" src="/assets/materialize/js/materialize.min.js"></script>
+          <script type="text/javascript" src="<?php echo base_url('assets/materialize/js/materialize.min.js') ?>"></script>
           <script type="text/javascript">
              $(document).ready(function() {
               $('select').material_select('destroy');

@@ -40,4 +40,9 @@ class Videochat_model extends CI_Model
     	return true;
 	}
 
+	public function delete_videochat($id){
+		$this->db->where($id)->delete('table_videochat');
+		return true;
+	}
+
 }

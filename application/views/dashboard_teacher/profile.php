@@ -43,7 +43,7 @@
                                       <!-- this is for the modal part of view files -->
                                        <div id="modaledit<?php echo $profiles['FacultyID'];?>" class="modal modal-iframe-content">
                                           <div class="modal-content">
-                                            <?php echo form_open_multipart('Teacherprofile/update_photo'); ?>
+                                            <form  enctype="multipart/form-data" action="<?php echo base_url('Teacherprofile/update_photo') ?>" method="POST">
                                             <input type="hidden" name='id' value="<?php echo $profiles['FacultyID'];?>">
                                                   <div class="file-field input-field">
                                                         <div class="btn btn-username cyan ">
@@ -80,7 +80,7 @@
                                             <div class="modal-content modal-edit-profile">
                                                 <h5>EDIT PROFILE</h5>
                                                 <div class="line" style="border:3px solid #00bcd4!important; margin: 25px 0;"></div>
-                                                <form action="Teacherprofile/update_profile" method=POST>
+                                                <form action="<?php echo base_url('Teacherprofile/update_profile') ?>" method=POST>
                                                   <input type="hidden" name='id' value="<?php echo $profiles['FacultyID'];?>" >
                                                   <div class="row">
                                                           <div class="row">
@@ -183,7 +183,7 @@
                                    <div id="modal1" class="modal">
                                     <div class="modal-content modal-edit-profile">
                                       <h5>Change account settings</h5>
-                                        <form action="Teacherprofile/update_teacher_account" method="POST">
+                                        <form action="<?php echo base_url('Teacherprofile/update_teacher_account') ?>" method="POST">
 
                                           <div class="col s12">
                                                 <div class="input-field input-for-edit">

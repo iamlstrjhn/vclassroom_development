@@ -5,7 +5,7 @@
           </div>
          </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script type="text/javascript" src="/assets/materialize/js/materialize.min.js"></script>
+      <script type="text/javascript" src="<?php echo base_url('assets/materialize/js/materialize.min.js') ?>"></script>
       <script type="text/javascript">
          $(".button-collapse").sideNav();
 

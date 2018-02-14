@@ -77,7 +77,7 @@
                                       <td class="td-custom-table"><?php echo $file_uploaded['Course'] ?></td>
                                       <td class="td-custom-table"><?php echo $file_uploaded['SchoolWorksFile'] ?></td>
                                       <td class="td-custom-table"><?php echo $file_uploaded['SchoolWorksDate'] ?></td>
-                                      <td><a class="btn btn-username cyan" href=""><i class="material-icons">cloud_download</i></a></td>
+                                      <td><a class="btn btn-username cyan" href="href="<?php echo site_url('/uploads/') .$file_uploaded['SchoolWorksFile']?>" target="_blank""><i class="material-icons">cloud_download</i></a></td>
                                   </tr>
 
                                 <?php } ?>

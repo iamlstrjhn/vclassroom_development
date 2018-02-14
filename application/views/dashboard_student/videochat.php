@@ -20,7 +20,7 @@
                                   <h6 class="h6-schedule"><?php echo $livechat['VideochatTopic'] ?></h6>
                                   <p><b class="sched-bold-text"><?php echo $livechat['Firstname'].' '.$livechat['Lastname']?></b>&ensp;<i><?php echo $livechat['VideochatSched'] ?></i></p>
                                   <p><?php echo $livechat['VideochatOverview'] ?></p>
-                                  <button class="btn btn-username cyan">Start</button>
+                                  <a class="btn btn-username cyan" href="https://www.gruveo.com/ccvirtualclassroom" target="_blank">JOIN</a>
                                 </div>
                               </div>
                           <?php } ?>

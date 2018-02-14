@@ -42,5 +42,10 @@ class Announcement_model extends CI_Model
     	return true;
 	}
 
+	public function delete_announcement($id){
+		$this->db->where($id)->delete('table_announcements');
+		return true;
+	}
+
 }
 

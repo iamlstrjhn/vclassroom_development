@@ -23,6 +23,8 @@ class Profile_model extends CI_Model {
 
 	public function edit_profile_photo($id,$data,$Photo){
 		$data = array('Photo' => $Photo, );
+		$id = array('FacultyID'=> $this->input->post('id'),
+					);
 		$this->db->where($id)->update('table_faculty',$data);
     	return true;
 	}

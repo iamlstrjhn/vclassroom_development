@@ -92,17 +92,25 @@ class Teacherschedules extends CI_Controller
 					);
 					$this->Announcement_model->edit_announcement($id,$data);
 					redirect('Teacherschedules');
-				
 				}
 
 			}
 
 			else
+
 			{
 				redirect('Login');
 			}
 
 
+	}
+
+
+	public function remove_announcements($id){
+			$data = array('AnnouncementID' => $id);
+			$this->Announcement_model->delete_announcement($data);
+			redirect('Teacherschedules');
+		
 	}
 	
 

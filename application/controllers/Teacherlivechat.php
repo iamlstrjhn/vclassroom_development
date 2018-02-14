@@ -106,6 +106,13 @@ class Teacherlivechat extends CI_Controller
 		}
 	}
 
+	public function remove_livechat($id){
+			$data = array('VideochatID' => $id);
+			$this->Videochat_model->delete_videochat($data);
+			redirect('Teacherlivechat');
+		
+	}
+
 
 
 

@@ -50,7 +50,7 @@ class Teacherschoolworks extends CI_Controller
                         $config['max_size']             = 0;
                         $config['max_filename']         = 0;
                         $config['max_filename_increment'] = FALSE;
-                        $config['remove_spaces'] 	    = TRUE;
+                        $config['remove_spaces'] 	    = FALSE;
                 
                         $this->load->library('upload',$config);
                         $this->upload->initialize($config);

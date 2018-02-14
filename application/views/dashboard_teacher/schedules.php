@@ -20,8 +20,7 @@
                                 <h5>ADD A SCHEDULE</h5>
 
                                 <div class="line" style="border:2px solid #00bcd4!important; margin:30px 0 10px 0;"></div>
-
-                                <?php echo form_open('Teacherschedules/add_announcement'); ?>
+                                <form action="<?php echo base_url('Teacherschedules/add_announcement') ?>" method="POST">
                                   <div class="row">
                                       <div class="col s12">
                                           <div class="input-field">
@@ -65,7 +64,7 @@
 
                                        <ul id='dropdownsched<?php echo $announcements['AnnouncementID'];?>' class='dropdown-content'>
                                         <li><a href="#modaledit<?php echo $announcements['AnnouncementID'];?>" class="modal-trigger"><i class="material-icons">edit</i>EDIT</a></li>
-                                        <li><a href="#!" class="remove"><i class="material-icons">delete</i>REMOVE</a></li>
+                                        <li><a href="<?php echo base_url('Teacherschedules/remove_announcements')."/".$announcements['AnnouncementID']; ?>" class="remove"><i class="material-icons">delete</i>REMOVE</a></li>
                                       </ul>
 
                                       <!-- modal part -->
@@ -73,7 +72,7 @@
                                           <div class="modal-content modal-add-schedules">
                                                 <h5>Edit the schedule</h5>
                                                 <div class="line" style="border:2px solid #00bcd4!important; margin:30px 0 10px 0;"></div>
-                                                <form action="Teacherschedules/update_announcement" method=POST>
+                                                <form action="<?php echo base_url('Teacherschedules/update_announcement'); ?>" method=POST>
                                                 <input type="hidden" name='id' value="<?php echo $announcements['AnnouncementID'];?>">
                                                   <div class="row">
                                                       <div class="col s12">

@@ -17,8 +17,7 @@
                             <div class="modal-content modal-add-livechat">
                                 <h5>SET SCHEDULE FOR LIVE CHAT</h5>
                                 <div class="line" style="border:2px solid #00bcd4!important; margin:30px 0 10px 0;"></div>
-
-                                <?php echo form_open('Teacherlivechat/setlivechat'); ?>
+                                <form action="<?php echo base_url('Teacherlivechat/setlivechat') ?> " method="POST">
                                   <div class="row">
                                       <div class="col s12">
                                           <div class="input-field">
@@ -62,7 +61,7 @@
                                     <!-- content of dropdown -->
                                       <ul id='dropdownlivechat<?php echo $livechat['VideochatID'] ?>' class='dropdown-content' style="font-weight: 400!important;">
                                         <li><a href="#modaledit<?php echo $livechat['VideochatID'] ?>" class="modal-trigger"><i class="material-icons">edit</i>EDIT</a></li>
-                                        <li><a href="#!" class="remove"><i class="material-icons">delete</i>REMOVE</a></li>
+                                        <li><a href="<?php echo base_url('Teacherlivechat/remove_livechat')."/".$livechat['VideochatID']; ?>" class="remove"><i class="material-icons">delete</i>REMOVE</a></li>
                                       </ul>
                                     <!-- end of content of dropdown -->
 
@@ -73,7 +72,7 @@
                                                 <h5>Edit Livechat content</h5>
                                                 <div class="line" style="border:2px solid #00bcd4!important; margin:30px 0 10px 0;"></div>
 
-                                                <form action="Teacherlivechat/updatelivechat" method=POST>
+                                                <form action="<?php echo base_url('Teacherlivechat/updatelivechat') ?>" method=POST>
                                                 <input type="hidden" name='id' value="<?php echo $livechat['VideochatID'] ?>">
                                                   <div class="row">
                                                       <div class="col s12">
@@ -107,7 +106,7 @@
 
                                   <p><b class="sched-bold-text"><?php echo $livechat['Firstname'].' '.$livechat['Lastname']?></b>&ensp;<i><?php echo $livechat['VideochatSched'] ?></i></p>
                                   <p><?php echo $livechat['VideochatOverview'] ?></p>
-                                  <button class="btn btn-username cyan">Start</button>
+                                  <a class="btn btn-username cyan" href="https://www.gruveo.com/ccvirtualclassroom" target="_blank">START</a>
                                 </div>
                               </div>
                           <?php } ?>

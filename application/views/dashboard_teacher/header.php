@@ -7,25 +7,25 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
       <!-- chosen css -->
-      <link rel="stylesheet" type="text/css" href="/assets/materialize/css/prism.css">
-      <link rel="stylesheet" type="text/css" href="/assets/materialize/css/chosen.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/materialize/css/prism.css') ?>">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/materialize/css/chosen.css') ?>">
       
-      <link type="text/css" rel="stylesheet" href="/assets/materialize/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/materialize/css/materialize.min.css') ?>"  media="screen,projection"/>
       <!-- minified version of css updated -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
       <!-- customized css -->
-      <link rel="stylesheet" type="text/css" href="/assets/materialize/css/style.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/materialize/css/style.css') ?>">
       <!-- animation of css -->
-      <link rel="stylesheet" type="text/css" href="/assets/materialize/css/animate.css">
+      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/materialize/css/animate.css') ?>">
       <!-- css of the livechat -->
-      <link rel="stylesheet" href="/assets/materialize/css/main.css" />
+      <link rel="stylesheet" href="<?php echo base_url('assets/materialize/css/main.css') ?>" />
       <!-- icons fonts and emojis links -->
       <!-- <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> -->
       <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,600,700,900" rel="stylesheet">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!-- LINK FOR ICON -->
-      <link rel="icon" href="/images/lesterjohn new.jpg">
+      <link rel="icon" href="<?php echo base_url('images/lesterjohn new.jpg') ?>">
     </head>
 
     <body>
@@ -34,7 +34,7 @@
           <div class="navbar-fixed">
               <nav>
                 <div class="nav-wrapper black-text">
-                  <a href="#!" class="brand-logo"><img class="image-logo" src="/images/logocc.png"></a>
+                  <a href="#!" class="brand-logo"><img class="image-logo" src="<?php echo base_url('images/logocc.png') ?>"></a>
                   <ul class="right hide-on-med-and-down">
                     <li><a class="btn-username btn white-text cyan" href="<?php echo base_url('Teacherprofile'); ?>">@
                       

@@ -19,9 +19,7 @@
                             <div class="modal-content modal-add-works">
                               <h5>ADD NEW SUBJECT</h5>
                               <div class="line" style="border:2px solid #00bcd4!important; margin:30px 0;"></div>
-
-                              <?php echo form_open('Teachersubjects/add_load'); ?>
-
+                              <form action="<?php echo base_url('Teachersubjects/add_load') ?>" method="POST">
                                     <div class="row">
                                         <div class="col s12">
                                           <div class="formrow">
@@ -98,7 +96,7 @@
 
           <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-          <script type="text/javascript" src="/assets/materialize/js/materialize.min.js"></script>
+          <script type="text/javascript" src="<?php echo base_url('assets/materialize/js/materialize.min.js') ?>"></script>
           <script type="text/javascript">
              $(document).ready(function() {
               $('select').material_select('destroy');

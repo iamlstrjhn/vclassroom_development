@@ -20,8 +20,7 @@
                          <div id="modal1" class="modal">
                           <div class="modal-content modal-add-works">
                             <h5>ADD NEW SCHOOL WORKS</h5>
-
-                            <?php echo form_open_multipart('Teacherschoolworks/post_content'); ?>
+                            <form enctype="multipart/form-data" method="POST" action="<?php echo base_url('Teacherschoolworks/post_content') ?>">
                                   <div class="row">
                                       <div class="col s12">
                                           <div class="input-field">
@@ -90,13 +89,12 @@
 
                         <div class="col s12 l6">
                           <div class="card-works">
-                            <a class="black-text h6-for-schoolworks" href="<?php echo site_url('/uploads/') .$item['SchoolWorksFile']?>" target="_blank"><?php echo $item['SchoolWorksFile'] ?></a>
+                          <a class="black-text h6-for-schoolworks" href="<?php echo site_url('/uploads/') .$item['SchoolWorksFile']?>" target="_blank"><?php echo $item['SchoolWorksFile'] ?></a>
                              <a class="right dropdown-button" href="#" data-beloworigin="true" data-activates="dropdown1<?php echo $item['SchoolworksID'] ?>"><i class="material-icons material-details">more_horiz</i></a>
                              <!-- dropdown content for this part -->
                                <ul id='dropdown1<?php echo $item['SchoolworksID'] ?>' class='dropdown-content'>
                                   <li><a href="#modalview<?php echo $item['SchoolworksID'] ?>" class="modal-trigger"><i class="material-icons">open_in_new</i>VIEW</a></li>
                                   <li><a href="#modaledit<?php echo $item['SchoolworksID'] ?>" class="modal-trigger"><i class="material-icons">edit</i>EDIT</a></li>
-                                  <li><a href="#!" class="remove"><i class="material-icons">delete</i>REMOVE</a></li>
                               </ul>
                                 <!-- this is for the modal part of view files -->
                                    <div id="modalview<?php echo $item['SchoolworksID'] ?>" class="modal modal-iframe-content">
@@ -110,7 +108,7 @@
                                   <div id="modaledit<?php echo $item['SchoolworksID'] ?>" class="modal">
                                       <div class="modal-content modal-add-works">
                                         <h5>Edit the information given</h5>
-                                          <?php echo form_open_multipart('Teacherschoolworks/edit_content'); ?>
+                                        <form enctype="multipart/form-data" method="POST" action="<?php echo base_url('Teacherschoolworks/edit_content') ?>">
                                               <input type="hidden" name='id' value="<?php echo $item['SchoolworksID'];?>">
                                               <div class="row">
                                                   <div class="col s12">
@@ -171,7 +169,7 @@
 
           <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-          <script type="text/javascript" src="/assets/materialize/js/materialize.min.js"></script>
+          <script type="text/javascript" src="<?php echo base_url('assets/materialize/js/materialize.min.js') ?>"></script>
           <script type="text/javascript">
              $(document).ready(function() {
               $('select').material_select();
