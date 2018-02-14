@@ -29,7 +29,9 @@ class Login extends CI_Controller
 					$this->form_validation->set_rules('lastname', 'Lastname', 'trim|required');
 					$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 					$this->form_validation->set_rules('username', 'username', 'trim|required');
-					$this->form_validation->set_rules('password', 'Password', 'trim|required');
+					$this->form_validation->set_rules('idnumber', 'Facultynumber', 'trim|required');
+					$this->form_validation->set_rules('type', 'type', 'trim|required');
+					$this->form_validation->set_rules('password', 'password', 'trim|required');
 					$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 					
 					if ($this->form_validation->run() === FALSE) 

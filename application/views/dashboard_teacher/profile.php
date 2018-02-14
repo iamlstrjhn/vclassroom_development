@@ -174,10 +174,43 @@
                             <!-- end of the table -->
 
                         </div>
+
+                         <div class="divider"></div>
+
+                          <?php foreach ($account as $accounts ) { ?>
+                                
+                                <a class="btn btn-username deep-purple modal-trigger" style="margin-top: 20px;" href="#modal1"><i class="material-icons edit">settings</i>ACCOUNT SETTINGS</a>
+                                   <div id="modal1" class="modal">
+                                    <div class="modal-content modal-edit-profile">
+                                      <h5>Change account settings</h5>
+                                        <form action="Teacherprofile/update_teacher_account" method="POST">
+
+                                          <div class="col s12">
+                                                <div class="input-field input-for-edit">
+                                                    <input name="username" type="text" value="<?php echo$accounts['username'] ?>">
+                                                      <label>Username</label>
+                                                </div>
+                                          </div>
+
+                                          <div class="col s12">
+                                                <div class="input-field input-for-edit">
+                                                    <input name="password" type="password" value="<?php echo $accounts['password'] ?>">
+                                                      <label>Password</label>
+                                                </div>
+                                          </div>
+
+                                          <button class="waves-effect btn cyan btn-username right" type="submit" value="submit" style="margin: 40px 0 20px 0;">SUBMIT </button>
+                                        </form>
+                                    </div>
+                                  </div>
+
+                          <?php } ?>
+
+                          
+
                       </div>
                     </div>
-                      
-                    
+
                   </div>
                 </div>
               </div>

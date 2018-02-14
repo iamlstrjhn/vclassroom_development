@@ -13,8 +13,9 @@ class Teacherprofile extends CI_Controller
 
 	public function index () {
 		if ($this->session->userdata('session')) {
-			$id = $this->session->userdata['session']['UserID'];
+			$id = $this->session->userdata['session']['FacultyID'];
 			$data['profile'] = $this->Profile_model->getprofile($id);
+			$data['account'] = $this->Profile_model->get_teacher_account($this->session->userdata['session']['UserID']);
 			$this->load->view('dashboard_teacher/header',$data);
 			$this->load->view('dashboard_teacher/profile',$data);
 			$this->load->view('dashboard_teacher/footer',$data);
@@ -36,12 +37,10 @@ class Teacherprofile extends CI_Controller
 			$this->form_validation->set_rules('course', 'Course', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required');
 			$this->form_validation->set_rules('address', 'Address', 'required');
-			$this->form_validation->set_rules('contact', 'contact', 'required');
+			$this->form_validation->set_rules('contact', 'Contact', 'required');
 
 			if($this->form_validation->run()===FALSE)
 			{
-				$this->load->model('Profile_model');
-				$data['profile'] = $this->Profile_model->getprofile(array('FacultyID'=>$this->session->userdata['session']['FacultyID']));
 				redirect('Teacherprofile', $data);
 			}
 
@@ -97,6 +96,28 @@ class Teacherprofile extends CI_Controller
                      $this->Profile_model->edit_profile_photo($id,$data,$Photo);
                         			redirect('Teacherprofile');
 	}
+
+
+			public function update_teacher_account(){
+					$this->form_validation->set_rules('username', 'username', 'required');
+					$this->form_validation->set_rules('password', 'password', 'required');
+					if ($this->form_validation->run()===FALSE) 
+					{
+						redirect('Teacherprofile');
+					}
+
+					else
+					{
+						$id = $this->session->userdata['session']['UserID'];
+						$data = array(
+										'username' =>$this->input->post('username') ,
+										'password'=>md5($this->input->post('password'))
+									);
+
+						$this->Profile_model->update_teacher_password($id,$data);
+						redirect('Teacherprofile');
+					}
+			}
 
 
 

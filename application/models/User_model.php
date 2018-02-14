@@ -8,7 +8,8 @@ class User_model extends CI_Model
 		$this->load->database();
 		$data = array(
 			'username' => $this->input->post('username'),
-			'password' => md5($this->input->post('password'))
+			'password' => md5($this->input->post('password')),
+			'type'=> $this->input->post('type')
 		);
 		$this->db->insert('table_user',$data);
 		$x = $this->db->insert_id();
@@ -17,6 +18,7 @@ class User_model extends CI_Model
 			'Firstname' => $this->input->post('firstname'),
 			'Lastname' => $this->input->post('lastname'),
 			'Email' => $this->input->post('email'),
+			'Studentnumber' => $this->input->post('idnumber'),
 			'UserID'=>$x
 		);
 			return $this->db->insert('table_student', $data);

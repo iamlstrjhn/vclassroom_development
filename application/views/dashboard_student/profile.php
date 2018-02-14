@@ -77,6 +77,7 @@
                                                         <form action="Studentprofile/update_profile" method="POST">
                                                         <input type="hidden" name='id' value="<?php echo $profiles['StudentID'];?>">
                                                           <div class="row">
+
                                                               <div class="row">
                                                                 <div class="col s4">
                                                                     <div class="input-field input-for-edit">
@@ -166,19 +167,54 @@
 
                                     </div>
                                     <!-- end of the table -->
-
                             <?php } ?>
 
 
                         </div>
                         <!-- closing tag for card profile -->
 
+                        <div class="divider"></div>
+
+                        <?php foreach ($account as $accounts) { ?>
+                              
+                              <a class="btn btn-username deep-purple modal-trigger" style="margin-top: 20px;" href="#modal1"><i class="material-icons edit">settings</i>ACCOUNT SETTINGS</a>
+                               <div id="modal1" class="modal">
+                                <div class="modal-content modal-edit-profile">
+                                  <h5>Change account settings</h5>
+                                    <form action="Studentprofile/update_student_account" method="POST">
+                                      <input type="hidden" name='id' value="">
+                                      <div class="col s12">
+                                            <div class="input-field input-for-edit">
+                                                <input name="username" type="text" value="<?php echo $accounts['username'] ?>">
+                                                  <label>Username</label>
+                                            </div>
+                                      </div>
+
+                                      <div class="col s12">
+                                            <div class="input-field input-for-edit">
+                                                <input name="password" type="password" value="<?php echo $accounts['password'] ?>">
+                                                  <label>Password</label>
+                                            </div>
+                                      </div>
+
+                                      <button class="waves-effect btn cyan btn-username right" type="submit" value="submit" style="margin: 40px 0 20px 0;">SUBMIT </button>
+                                    </form>
+                                </div>
+                              </div>
+
+                        <?php } ?>
+                          
+
+                         
+                          
+
                       </div>
                       <!-- closing tag for col s12 -->
 
+
+
                     </div>
-                      
-                    
+
                   </div>
                 </div>
               </div>

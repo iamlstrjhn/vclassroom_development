@@ -108,8 +108,6 @@ class Teachersubjects extends CI_Controller
 		}
 
 		
-
-
 	}
 
 

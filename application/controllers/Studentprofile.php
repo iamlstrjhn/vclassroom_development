@@ -13,11 +13,12 @@ class Studentprofile extends CI_Controller
 
 	public function index () {
 		if ($this->session->userdata('flag')) {
-			$id = $this->session->userdata['flag']['UserID'];
+			$id = $this->session->userdata['flag']['StudentID'];
 			$data['profile'] = $this->Profile_model->get_student_profile($id);
-			$this->load->view('dashboard_student/header');
+			$data['account'] = $this->Profile_model->get_student_account($this->session->userdata['flag']['UserID']);
+			$this->load->view('dashboard_student/header',$data);
 			$this->load->view('dashboard_student/profile', $data);
-			$this->load->view('dashboard_student/footer');
+			$this->load->view('dashboard_student/footer',$data);
 		}
 		else {
 			redirect('Studentlogin');
@@ -37,12 +38,10 @@ class Studentprofile extends CI_Controller
 			$this->form_validation->set_rules('course', 'Course', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required');
 			$this->form_validation->set_rules('address', 'Address', 'required');
-			$this->form_validation->set_rules('contact', 'contact', 'required');
+			$this->form_validation->set_rules('contact', 'Contact', 'required');
 
 			if($this->form_validation->run()===FALSE)
 			{
-				$this->load->model('Profile_model');
-				$data['profile'] = $this->Profile_model->getprofile(array('StudentID'=>$this->session->userdata['flag']['StudentID']));
 				redirect('Studentprofile', $data);
 			}
 
@@ -54,13 +53,13 @@ class Studentprofile extends CI_Controller
 						'Course'=>$this->input->post('course'),
 						'Email'=>$this->input->post('email'),
 						'Address'=>$this->input->post('address'),
-						'Contact'=>$this->input->post('contact')
-
-					);
-					$this->Profile_model->edit_student_profile($id,$data);
-					redirect('Studentprofile');
+						'Contact'=>$this->input->post('contact'),
+							);
 			
 				}
+
+					$this->Profile_model->edit_student_profile($id,$data);
+					redirect('Studentprofile');
 			}
 
 			else
@@ -96,6 +95,27 @@ class Studentprofile extends CI_Controller
 
                      $this->Profile_model->edit_student_photo($id,$data,$Photo);
                      redirect('Studentprofile');
+	}
+
+	public function update_student_account(){
+			$this->form_validation->set_rules('username', 'username', 'required');
+			$this->form_validation->set_rules('password', 'password', 'required');
+			if ($this->form_validation->run()===FALSE) 
+			{
+				redirect('Studentprofile');
+			}
+
+			else
+			{
+				$id = $this->session->userdata['flag']['UserID'];
+				$data = array(
+								'username' =>$this->input->post('username') ,
+								'password'=>md5($this->input->post('password'))
+							);
+
+				$this->Profile_model->update_student_password($id,$data);
+				redirect('Studentprofile');
+			}
 	}
 
 

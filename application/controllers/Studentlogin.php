@@ -29,6 +29,8 @@ class Studentlogin extends CI_Controller
 		$this->form_validation->set_rules('lastname', 'Lastname', 'trim|required');
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('username', 'username', 'trim|required');
+		$this->form_validation->set_rules('idnumber', 'Studentnumber', 'trim|required');
+		$this->form_validation->set_rules('type', 'type', 'trim|required');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required');
 		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
 		

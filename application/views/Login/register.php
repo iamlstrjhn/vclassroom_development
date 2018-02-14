@@ -37,15 +37,35 @@
 	                         <div class="input-field">
 	                           <input type="email"  name="email" placeholder="Email Address" required="">
 	                         </div>
+	                         <div class="row row-field">
+	                         	<div class="col l6 s12">
+	                         		<div class="input-field">
+			                           <input type="text"  name="username" placeholder="Username" required="">
+			                         </div>
+	                         	</div>
+	                         	<div class="col l6 s12">
+	                         		<div class="input-field">
+			                           <input type="text"  name="idnumber" placeholder="Enter your Faculty ID Number" required="">
+			                         </div>
+	                         	</div>
+	                         </div>
+	                         
+	                         <div class="row row-field">
+	                         	<div class="col l6 s12">
+	                         		<div class="input-field">
+			                           <input type="password"  name="password" placeholder="Password" required="">
+			                        </div>
+	                         	</div>
+	                         	<div class="col l6 s12">
+	                         		 <div class="input-field">
+			                           <input type="password"  name="confirm_password" placeholder="Confirm password" required="">
+			                         </div>
+	                         	</div>
+	                         </div>
 	                         <div class="input-field">
-	                           <input type="text"  name="username" placeholder="Username" required="">
+	                           <input type="text"  name="type" value="faculty" required="">
 	                         </div>
-	                          <div class="input-field">
-	                           <input type="password"  name="password" placeholder="Password" required="">
-	                         </div>
-	                         <div class="input-field">
-	                           <input type="password"  name="confirm_password" placeholder="Confirm password" required="">
-	                         </div>
+
 	                    <button type="submit" class="center btn-large blue lighten-1 btn-custom-login">Register me</button> 
 	                </form>
 	          </div>
